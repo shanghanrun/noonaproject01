@@ -1,0 +1,173 @@
+:root {
+    --ti-cursor-margin-left: 0.1em;
+    --ti-cursor-color: rgb(13, 253, 101);
+    /* --ti-cursor-width: 5px; */
+}
+body {
+    margin:0;
+    width:100vw;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* before와 after는 배경화면을 다룰 때는 차이 없다. */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://kids-flashcards.com/collages/numbers-(1-20)-english-flashcards.jpg');
+    filter: blur(1px) brightness(70%);
+        /* 흐림과 어둡게 설정 */
+    opacity: 0.3;
+    /* 50% 투명도 적용 */
+    z-index: -1;
+    /* 배경을 뒤로 보내기 위한 z-index 설정 */
+}
+
+h1 {
+    font-family: verdana;
+    margin-bottom: 0;
+}
+
+#remain-tag {
+    height: 60px;
+    width: 200px;
+    font-size: 20px;
+    background-color: rgb(155, 235, 155);
+
+    display: flex;
+    align-items: center;
+    /* 상하 중간에 정렬 */
+    justify-content: center;
+    /* 좌우 중간에 정렬 */
+    border-radius: 10px;
+    /* 곡선 보더 */
+
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 10px rgba(65, 64, 64, 0.95);
+}
+
+
+
+img {
+    width: 50%;
+    height: 50%;
+    /* height: 200px; */
+    border-radius: 10px;
+    opacity: 0.95;
+    box-shadow: 5px 5px 10px rgba(76, 75, 75, 0.95);
+        /* 그림자 설정 */
+    margin-bottom: 20px;
+}
+
+
+#result-tag {
+    height: 60px;
+    width: 200px;
+    font-size: 20px;
+    background-color: rgb(237, 173, 248);
+
+    display: flex;
+    align-items: center;
+    /* 상하 중간에 정렬 */
+    justify-content: center;
+    /* 좌우 중간에 정렬 */
+    border-radius: 10px;
+    /* 곡선 보더 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left:10px;
+    padding-right: 10px;
+    transition: all .5s;
+}
+
+#user-input {
+    height: 60px;
+    width: 120px;
+    font-size: 20px;
+    padding-left: 10px;
+    border-radius: 4px;
+    transition: all .5s;
+}
+
+/* 기본 스타일 */
+#play-button {
+    height: 60px;
+    width: 200px;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all .5s;
+}
+
+/* 활성화된 상태의 스타일 */
+#play-button.active {
+    background-color: #4caf50;
+    /* 녹색 배경색 */
+    color: #ffffff;
+    /* 흰색 텍스트 */
+}
+
+/* 비활성화된 상태의 스타일 */
+#play-button.disabled {
+    background-color: #dddddd;
+    /* 회색 배경색 */
+    color: #aaaaaa;
+    /* 회색 텍스트 */
+    cursor: not-allowed;
+    /* 비활성화된 상태에서는 클릭 방지 */
+}
+
+#reset-button {
+    height: 60px;
+    width: 80px;
+    font-size: 20px;
+    background-color: rgb(250, 84, 230);
+
+    display: flex;
+    align-items: center;
+    /* 상하 중간에 정렬 */
+    justify-content: center;
+    /* 좌우 중간에 정렬 */
+    border-radius: 50px;
+    margin-right: 10px;
+    transition: all .5s;
+}
+
+#mission{
+    color:rgb(66, 66, 247)
+}
+.set {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 800px){
+    .set{
+        flex-direction: column;
+    }
+    #user-input{
+        width: 200px;
+    }
+    #play-button{
+        margin-bottom:0;
+    }
+    #reset-button{
+        margin:0;
+        width: 200px;
+    }
+    img{
+        margin-bottom:0;
+    }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+</head>
+
+<body>
+    <h1>Guess the Number</h1>
+    <h2 id="mission">1부터 200</h2>
+    <div id="remain-tag">남은 횟수: 5</div>
+    <img id='image' src="https://i.pinimg.com/originals/04/3b/7a/043b7a72e6f3fd332bdf88e94f7ecff3.gif" alt="상태" />
+    <div class="set">
+        <div id="result-tag">메시지</div>
+        <input type="number" id="user-input" placeholder="1~100 사이">
+        <button id="play-button" class="active">Go!</button>
+        <div>
+            <button id="reset-button">reset</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
