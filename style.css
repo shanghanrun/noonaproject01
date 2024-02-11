@@ -41,8 +41,15 @@ h1 {
     width: 200px;
     font-size: 20px;
     background-color: rgb(155, 235, 155);
-    border-radius: 10px;
 
+    /* 글자를 정중앙에 정렬하기 위해 */
+    display: flex;
+    /* 좌우 중간 정렬 */
+    justify-content: center;
+    /* 상하 중간 정렬 */
+    align-items: center;
+    
+    border-radius: 10px;
     margin-bottom: 10px;
     box-shadow: 5px 5px 10px rgba(65, 64, 64, 0.95);
 }
