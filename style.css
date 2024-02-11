@@ -41,14 +41,7 @@ h1 {
     width: 200px;
     font-size: 20px;
     background-color: rgb(155, 235, 155);
-
-    display: flex;
-    align-items: center;
-    /* 상하 중간에 정렬 */
-    justify-content: center;
-    /* 좌우 중간에 정렬 */
     border-radius: 10px;
-    /* 곡선 보더 */
 
     margin-bottom: 10px;
     box-shadow: 5px 5px 10px rgba(65, 64, 64, 0.95);
