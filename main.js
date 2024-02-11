@@ -175,3 +175,4 @@ function activateGoButton(){
     userInput.addEventListener('focus', initialize)
 }
 
+//추가함
