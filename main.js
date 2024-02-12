@@ -88,7 +88,7 @@ function play() {
     
     if (userNumber >100 || userNumber <1){
         // 결과창에 '1~100사이 숫자를 입력하라고 알려줌
-        messageTag.innerHTML = "1~100사이"
+        messageTag.innerHTML = "1~100사이 잉!~"
         // input 창 숫자를 리셋
         userInput.value = ''
    } else if ( userNumberList.includes(userNumber)){
@@ -165,6 +165,6 @@ function flipCard() {
 function resetFlipCard(){
     messageTag.innerHTML = '메시지';
     const flipCardBack = document.querySelector('.flip-card-back')
-    flipCardBack.style.backgroundColor = 'rgb(237, 173, 248)'; 
+    flipCardBack.style.backgroundColor = '#4d59fb)'; 
     flipCardInner.style.transform = 'rotateY(0deg)';
 }
