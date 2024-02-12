@@ -61,7 +61,7 @@ img {
     height: 50%;
     /* height: 200px; */
     border-radius: 10px;
-    opacity: 0.95;
+    opacity: 0.8;
     box-shadow: 5px 5px 10px rgba(76, 75, 75, 0.95);
     /* 그림자 설정 */
     margin-bottom: 20px;
@@ -111,6 +111,7 @@ img {
     left: 0;
     /* 부모 요소 왼쪽에 위치하도록 설정 */
     backface-visibility: hidden;
+    display: block;
 }
 
 .flip-card-front {

@@ -45,11 +45,12 @@ const fail ='https://i.pinimg.com/originals/c6/c0/09/c6c0099d50376c25d1e436a9319
 // 모든 셋팅을 초기화하는 함수 
 function initialize(){
     isFirst = true
-    chances =5
+    chances = 6
     userNumberList =[]
     gameOver = false
     chancesTag.innerHTML = `남은횟수: ${chances}`
     messageTag.innerHTML = '메시지'
+    message2Tag.innerHTML ='깍꿍!~'
     userInput.value =''
     image.src = pending
 
@@ -100,31 +101,22 @@ function play() {
         // 결과창 'down'
         messageTag.innerHTML = 'down ↓'
         image.src = down
-        image.style.width ='50%'
-        image.style.height ='40%'
-        image.style.opacity ='0.8'
         // input창 리셋
         userInput.value =''
         chances--
         chancesTag.innerHTML = `남은 횟수: ${chances}` //화면 반영 위해!!
         userNumberList.push(userNumber)
     } else if(userNumber < computerNumber){
-        //결과창 'up'
         messageTag.innerHTML = 'up ↑'
         image.src = up
-        image.style.width ='50%'
-        // input창 리셋
         userInput.value =''
         chances--
         chancesTag.innerHTML = `남은 횟수: ${chances}` //화면 반영 위해!!
         userNumberList.push(userNumber)
     } else if ( userNumber == computerNumber){
-        // 결과창을 '정답'으로 
         message2Tag.innerHTML = '정답!!'
         flipCard();
         image.src = success
-        image.style.width ='50%'
-        image.style.opacity ='0.8'
         gameOver = true;
     }    
     if (chances ==0){
@@ -138,8 +130,6 @@ function play() {
             message2Tag.innerHTML=`실패 (정답:${computerNumber})`
             flipCard();
             image.src = fail
-            image.style.width ='50%'
-            image.style.opacity ='0.8'
             mission.innerHTML = '다시하려면 "reset"을 누르세요'
         }
     }
@@ -167,4 +157,13 @@ function resetFlipCard(){
     const flipCardBack = document.querySelector('.flip-card-back')
     flipCardBack.style.backgroundColor = '#4d59fb)'; 
     flipCardInner.style.transform = 'rotateY(0deg)';
+
+    // hover 효과를 다시 활성화
+    flipCardInner.addEventListener('mouseover', function() {
+        flipCardInner.style.transform = 'rotateY(180deg)';
+    });
+    // 마우스가 요소를 벗어났을 때 다시 원래대로 돌아오기
+    flipCardInner.addEventListener('mouseout', function() {
+        flipCardInner.style.transform = 'rotateY(0deg)';
+    });
 }
