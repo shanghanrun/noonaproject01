@@ -29,10 +29,12 @@ const playButton = document.getElementById('play-button')
 const userInput = document.getElementById('user-input')
 const chancesTag = document.getElementById('chances-tag')
 const resultTag = document.getElementById('result-tag')
+const messageTag = document.getElementById('message')
+const message2Tag = document.getElementById('message2')
 const resetButton = document.getElementById('reset-button')
 const image = document.getElementById('image')
 const mission =document.querySelector('#mission')
-
+const flipCardInner = document.querySelector('.flip-card-inner');
 
 const pending ='https://i.pinimg.com/originals/04/3b/7a/043b7a72e6f3fd332bdf88e94f7ecff3.gif'
 const down ='https://media.tenor.co/images/1a344b45b97ac46cf0f23610392899ac/raw'
@@ -47,7 +49,7 @@ function initialize(){
     userNumberList =[]
     gameOver = false
     chancesTag.innerHTML = `남은횟수: ${chances}`
-    resultTag.innerHTML = '메시지'
+    messageTag.innerHTML = '메시지'
     userInput.value =''
     image.src = pending
 
@@ -86,17 +88,17 @@ function play() {
     
     if (userNumber >100 || userNumber <1){
         // 결과창에 '1~100사이 숫자를 입력하라고 알려줌
-        resultTag.innerHTML = "1~100사이"
+        messageTag.innerHTML = "1~100사이"
         // input 창 숫자를 리셋
         userInput.value = ''
    } else if ( userNumberList.includes(userNumber)){
         // 결과창에 이미 입력한 숫자라고 알려줌.
-        resultTag.innerHTML = '이미 입력한 숫자입니다.'
+        messageTag.innerHTML = '이미 입력한 숫자입니다.'
         // input 창 숫자를 리셋
         userInput.value = ''
    } else if (userNumber > computerNumber){
         // 결과창 'down'
-        resultTag.innerHTML = 'down ↓'
+        messageTag.innerHTML = 'down ↓'
         image.src = down
         image.style.width ='50%'
         image.style.height ='40%'
@@ -108,7 +110,7 @@ function play() {
         userNumberList.push(userNumber)
     } else if(userNumber < computerNumber){
         //결과창 'up'
-        resultTag.innerHTML = 'up ↑'
+        messageTag.innerHTML = 'up ↑'
         image.src = up
         image.style.width ='50%'
         // input창 리셋
@@ -118,7 +120,8 @@ function play() {
         userNumberList.push(userNumber)
     } else if ( userNumber == computerNumber){
         // 결과창을 '정답'으로 
-        resultTag.innerHTML = '정답!!'
+        message2Tag.innerHTML = '정답!!'
+        flipCard();
         image.src = success
         image.style.width ='50%'
         image.style.opacity ='0.8'
@@ -132,7 +135,8 @@ function play() {
         //go 버튼 비활성화
         playButton.disabled =true;
         if(chances ==0){
-            resultTag.innerHTML=`실패 (정답:${computerNumber})`
+            message2Tag.innerHTML=`실패 (정답:${computerNumber})`
+            flipCard();
             image.src = fail
             image.style.width ='50%'
             image.style.opacity ='0.8'
@@ -143,6 +147,7 @@ function play() {
 }
 
 function reset() {
+    resetFlipCard()
     initialize()
 
     userInput.placeholder ='1~100사이'
@@ -154,3 +159,12 @@ function reset() {
                 .go()
 }
 
+function flipCard() {
+    flipCardInner.style.transform = 'rotateY(180deg)';
+  }
+function resetFlipCard(){
+    messageTag.innerHTML = '메시지';
+    const flipCardBack = document.querySelector('.flip-card-back')
+    flipCardBack.style.backgroundColor = 'rgb(237, 173, 248)'; 
+    flipCardInner.style.transform = 'rotateY(0deg)';
+}
