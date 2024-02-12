@@ -35,6 +35,7 @@ const resetButton = document.getElementById('reset-button')
 const image = document.getElementById('image')
 const mission =document.querySelector('#mission')
 const flipCardInner = document.querySelector('.flip-card-inner');
+const flipCardInner2 = document.querySelector('.flip-card-inner2');
 
 const pending ='https://i.pinimg.com/originals/04/3b/7a/043b7a72e6f3fd332bdf88e94f7ecff3.gif'
 const down ='https://media.tenor.co/images/1a344b45b97ac46cf0f23610392899ac/raw'
@@ -83,7 +84,10 @@ function makeComputerNumber(){
 }
 
 function play() {
-    if (isFirst) makeComputerNumber();
+    if (isFirst) {
+        makeComputerNumber();
+        // flipCard2()
+    }
     isFirst = false;
     userNumber = userInput.value  // innerText, textContent로는 안된다.
     
@@ -151,6 +155,9 @@ function reset() {
 
 function flipCard() {
     flipCardInner.style.transform = 'rotateY(180deg)';
+  }
+function flipCard2() {
+    flipCardInner2.style.transform = 'rotateY(180deg)';
   }
 function resetFlipCard(){
     messageTag.innerHTML = '메시지';
