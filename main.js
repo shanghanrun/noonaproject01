@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let isFirst
 let computerNumber
+let computerNumberBoundary
 let userNumber
 let userNumberList
 let chances
@@ -81,6 +82,8 @@ function inputInitialize(){
 function makeComputerNumber(){
     computerNumber = Math.floor(Math.random()*100)+1;   // randomd은 0=< 숫자 < 1
     console.log(computerNumber);
+    computerNumberBoundary = Math.floor(computerNumber /10)  //   23 /10 = 2
+    computerNumberBoundary = `${computerNumberBoundary}1 ~ ${computerNumberBoundary}9` 
 }
 
 function play() {
@@ -108,15 +111,25 @@ function play() {
         // input창 리셋
         userInput.value =''
         chances--
-        chancesTag.innerHTML = `남은 횟수: ${chances}` //화면 반영 위해!!
-        userNumberList.push(userNumber)
+        if (chances == 1){
+            chancesTag.innerHTML=` 마지막이니 힌트줄께. ${computerNumberBoundary} 사이야`
+            chancesTag.style.width = '400px';
+        } else {
+            chancesTag.innerHTML = `남은 횟수: ${chances}` //화면 반영 위해!!
+            userNumberList.push(userNumber)
+        }
     } else if(userNumber < computerNumber){
         messageTag.innerHTML = 'up ↑'
         image.src = up
         userInput.value =''
         chances--
-        chancesTag.innerHTML = `남은 횟수: ${chances}` //화면 반영 위해!!
-        userNumberList.push(userNumber)
+        if (chances == 1){
+            chancesTag.innerHTML=` 마지막이니 힌트줄께. ${computerNumberBoundary} 사이야`
+            chancesTag.style.width = '400px';
+        } else {
+            chancesTag.innerHTML = `남은 횟수: ${chances}` //화면 반영 위해!!
+            userNumberList.push(userNumber)
+        }
     } else if ( userNumber == computerNumber){
         message2Tag.innerHTML = '정답!!'
         flipCard();
